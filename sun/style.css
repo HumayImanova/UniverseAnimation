@@ -1,0 +1,166 @@
+*{
+    box-sizing: border-box;
+}
+body{
+animation: dayToNight 10s infinite 1.5s ;
+overflow: hidden;
+}
+
+section{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position-x: center;
+    animation: animateBg 10s infinite 1s;
+}
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+span{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255,255,255,.1),
+        0 0 0 8px rgba(255,255,255,.1),
+        0 0 20px rgba(255,255,255,1);
+    animation: animate 10s infinite 1s;
+}
+
+span:nth-child(1){
+    top: 0px;
+    right: 420px;
+    animation-delay: 0;
+    animation-duration: 1s;
+}
+
+span:nth-child(2){
+    top: 0px;
+    right: 280px;
+    animation-delay: 0.2s;
+    animation-duration: 3s;
+}
+span:nth-child(3){
+    top: 80px;
+    left: 480px;
+    animation-delay: 0.4s;
+    animation-duration: 2s;
+}
+
+span:before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg,#fff,transparent);
+}
+
+
+
+.sun{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 81);
+    border: 1 solid rgb(255, 255, 81) ;
+    animation: sunShadow 10s infinite 1.5s;
+}
+
+.shadow{
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background-color: black;
+    top: -5px;
+    left: 0px;
+    animation: moveshadow 10s infinite 1.5s;
+}
+
+@keyframes moveshadow{
+    0%{
+        transform: translateX(150px);
+        background-color: black;
+    }
+
+    50%{
+        transform: translateX(-10px);
+        background-color: rgb(255, 255, 255);
+    }
+
+ 100%{
+    transform: translateX(170px);
+    background-color: black;
+
+}
+
+}
+
+@keyframes dayToNight{
+    0%{
+        background-color: black;
+    }
+
+    50%{
+        background-color: rgb(255, 255, 255);
+    }
+
+
+100%{
+    background-color: black;
+}
+
+}
+@keyframes sunShadow{
+    0%{
+        box-shadow: 0 0 10px orange, 0 0 60px orange, 0 0 80px  rgb(255, 255, 81) ;
+    }
+
+    50%{
+        box-shadow: none;
+    }
+
+
+100%{
+    box-shadow: 0 0 10px orange, 0 0 60px orange, 0 0 80px  rgb(255, 255, 81);
+}
+
+}
+
+@keyframes animateBg{
+    0%,100%
+    {
+        transform: scale(1);
+    }
+    50%
+    {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes animate{
+    0%
+    {
+        transform: rotate(-45deg) translateX(0);
+    }
+    70%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        transform: rotate(-45deg) translateX(-1000px);
+        opacity: 0;
+    }
+}
+
+
